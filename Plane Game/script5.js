@@ -61,17 +61,7 @@ window.onload = function() {
         spaceBarHeldDown = false;
       }
     });
-//click button/mouse
-    let btn = document.getElementById("fly")
-    let buttonHeldDown = false;   
-// button key down 
-    btn.addEventListener('mousedown', () => {        
-      buttonHeldDown = true;
-    });
-//button key up
-    btn.addEventListener('mouseup', () => {        
-      buttonHeldDown = false;
-    });
+
 //Startbtn
 
 // EVENT LISTENERS /////////////////////////////
@@ -273,6 +263,3 @@ if (clickx > 1157 && clickx<1207 && clicky > 400 && clicky<460 ){
 startScreen();
 
 }
-
-
-
