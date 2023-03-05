@@ -108,12 +108,15 @@ if (clickx > 1157 && clickx<1207 && clicky > 400 && clicky<460 ){
     console.log("sound on"); 
     sound = 2;
     soundTrack.volume=0.08;
-    soundTrack.play();
+    soundTrack.play(); 
   }
 }
+soundTrack.addEventListener("ended", function(){
+  this.currentTime=0;
+  this.play();
+},false);
 
 })
-
 
 //Game Loop
   function animateGame() {
@@ -224,10 +227,9 @@ if (clickx > 1157 && clickx<1207 && clicky > 400 && clicky<460 ){
 
 
   let sound=1;
-  sound==1;
   let state=1
 
-
+  // start screen animation
   function startScreen(){
     var timePassed = (Date.now() - t) / 1000;
     t = Date.now()
@@ -241,11 +243,15 @@ if (clickx > 1157 && clickx<1207 && clicky > 400 && clicky<460 ){
     context.font="25px sans-serif";
     context.drawImage(plane,planex,y);
     context.drawImage(startbtn,startbtnx,startbtny)
- 
+    //sound indicator
     context.drawImage(soundOff,1200,400,70,60)
-    
     context.drawImage(soundOn,1140,400,70,60)
-    
+    if (sound==1){
+      context.fillText("sound off", 1150,480);
+    }
+    if (sound==2){
+      context.fillText("sound on", 1150,480);
+    }
   
   //background movement
   x -= (backgroundStartSpeed * timePassed);
